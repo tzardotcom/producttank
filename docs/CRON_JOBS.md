@@ -45,9 +45,9 @@ W `vercel.json` dodaj:
 - `0 9 * * *` – codziennie o 9:00 UTC (reminder)
 - `0 10 * * *` – codziennie o 10:00 UTC (follow-up)
 
-W Vercel ustaw zmienną `CRON_SECRET` w Environment Variables. Vercel Cron przy wywołaniu nie dodaje automatycznie nagłówka `Authorization` – musisz ustawić **Cron Secret** w ustawieniach projektu (Settings → Crons) lub użyć innej metody (np. serverless function wywołująca endpoint z nagłówkiem).
+W Vercel ustaw zmienną `CRON_SECRET` w **Environment Variables** (Production). Vercel przy wywołaniu crona automatycznie dodaje nagłówek `Authorization: Bearer <CRON_SECRET>` – endpointy go weryfikują.
 
-Alternatywa: użyj zewnętrznego crona (np. cron-job.org, GitHub Actions) z GET + nagłówkiem `Authorization: Bearer <CRON_SECRET>`.
+Harmonogram w `vercel.json`: reminder 9:00 UTC, follow-up 10:00 UTC (codziennie).
 
 ## Supabase
 
