@@ -1,0 +1,8 @@
+# Nie wysyłaj do Vercel (oszczędność i bezpieczeństwo)
+.agency/
+.env
+.env.*
+!.env.example
+supabase/.temp/
+node_modules/
+.next/
