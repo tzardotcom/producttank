@@ -6,6 +6,16 @@ Deploy aplikacji ProductTank na Vercel z automatycznym buildem przy pushu do Git
 
 Jeśli projekt nie jest jeszcze na GitHubie:
 
+1. Utwórz **puste** repozytorium na GitHubie (bez README, bez .gitignore).
+2. W katalogu projektu wykonaj (jeśli repo już ma commit – wystarczy remote + push):
+
+```bash
+git remote add origin https://github.com/TWOJ_USER/TWOJE_REPO.git
+git push -u origin main
+```
+
+Jeśli repo dopiero inicjujesz:
+
 ```bash
 git init
 git add .
