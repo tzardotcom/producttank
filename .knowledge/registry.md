@@ -13,6 +13,7 @@ Rejestr projektów i dostępnych wzorców w bazie wiedzy.
 | Wzorzec | Opis |
 |---------|------|
 | [nextjs-typescript-tailwind-shadcn-stack.md](patterns/nextjs-typescript-tailwind-shadcn-stack.md) | Stack: Next.js 14 App Router, TypeScript, Tailwind, shadcn – pojęcia, relacje, design tokens z Figmy |
+| [vercel-deploy-full-config.md](patterns/vercel-deploy-full-config.md) | Deploy na Vercel z pełną konfiguracją: repo → deploy → env na Vercel → redeploy; agent nie pomija tego kroku |
 
 ## Implementacje (implementations)
 
