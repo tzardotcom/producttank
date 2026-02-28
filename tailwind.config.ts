@@ -46,6 +46,8 @@ const config: Config = {
       },
       animationDelay: {
         150: "150ms",
+        200: "200ms",
+        250: "250ms",
         300: "300ms",
       },
       keyframes: {

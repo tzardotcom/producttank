@@ -1,12 +1,14 @@
-import Link from "next/link";
 import { redirect } from "next/navigation";
+import Link from "next/link";
 import { createClient } from "@/lib/supabase/server";
-import { LoginForm } from "@/components/login-form";
+import { RegisterForm } from "@/components/register-form";
 import { Button } from "@/components/ui/button";
 
-export default async function LoginPage() {
+export default async function RegisterPage() {
   const supabase = await createClient();
-  const { data: { user } } = await supabase.auth.getUser();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
   if (user) redirect("/dashboard");
 
   return (
@@ -16,30 +18,29 @@ export default async function LoginPage() {
           <Link href="/" className="font-semibold text-lg text-foreground">
             ProductTank
           </Link>
-          <Link href="/register">
-            <Button size="sm">Zarejestruj się</Button>
+          <Link href="/login">
+            <Button variant="outline" size="sm">
+              Zaloguj się
+            </Button>
           </Link>
         </div>
       </header>
-      <div className="flex-1 flex flex-col items-center justify-center p-4">
+      <main className="flex-1 flex flex-col items-center justify-center p-4">
         <div className="w-full max-w-sm space-y-6 animate-in fade-in-0 slide-in-from-bottom-2 duration-normal fill-mode-forwards">
           <div className="text-center space-y-1">
-            <h1 className="text-2xl font-bold tracking-tight text-foreground">Zaloguj się</h1>
+            <h1 className="text-2xl font-bold tracking-tight text-foreground">Utwórz konto</h1>
             <p className="text-sm text-muted-foreground">
-              Nie masz konta?{" "}
-              <Link href="/register" className="font-medium text-primary hover:underline">
-                Zarejestruj się
-              </Link>
+              Zacznij zarządzać eventami w jednym miejscu.
             </p>
           </div>
-          <LoginForm />
+          <RegisterForm />
           <p className="text-center text-sm text-muted-foreground">
             <Link href="/" className="hover:text-foreground transition-colors">
               ← Strona główna
             </Link>
           </p>
         </div>
-      </div>
+      </main>
     </div>
   );
 }
