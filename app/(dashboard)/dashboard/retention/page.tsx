@@ -17,8 +17,8 @@ export default async function RetentionPage() {
     return (
       <div className="max-w-4xl">
         <p className="mb-4">
-          <Link href="/dashboard" className="text-sm text-muted-foreground hover:underline">
-            ← Eventy
+          <Link href="/dashboard" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+            ← Home
           </Link>
         </p>
         <Card>
@@ -37,8 +37,8 @@ export default async function RetentionPage() {
     return (
       <div className="max-w-4xl">
         <p className="mb-4">
-          <Link href="/dashboard" className="text-sm text-muted-foreground hover:underline">
-            ← Eventy
+          <Link href="/dashboard" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+            ← Home
           </Link>
         </p>
         <Card>
@@ -95,8 +95,8 @@ export default async function RetentionPage() {
   return (
     <div className="max-w-4xl">
       <p className="mb-4">
-        <Link href="/dashboard" className="text-sm text-muted-foreground hover:underline">
-          ← Eventy
+        <Link href="/dashboard" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+          ← Home
         </Link>
       </p>
       <h1 className="text-2xl font-bold mb-6">Retencja i metryki</h1>

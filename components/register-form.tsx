@@ -37,7 +37,14 @@ export function RegisterForm() {
         },
       });
       if (err) {
-        setError(err.message ?? "Rejestracja nie powiodła się.");
+        const msg = err.message ?? "";
+        if (msg.includes("Load failed") || msg.includes("Failed to fetch") || msg.includes("fetch")) {
+          setError(
+            "Błąd połączenia z serwerem. Sprawdź połączenie internetowe i czy w .env.local są ustawione NEXT_PUBLIC_SUPABASE_URL oraz NEXT_PUBLIC_SUPABASE_ANON_KEY."
+          );
+        } else {
+          setError(msg || "Rejestracja nie powiodła się.");
+        }
         return;
       }
       if (data?.user?.identities?.length === 0) {
@@ -49,6 +56,15 @@ export function RegisterForm() {
         router.refresh();
       } else {
         setSuccess(true);
+      }
+    } catch (e) {
+      const message = e instanceof Error ? e.message : String(e);
+      if (message.includes("Load failed") || message.includes("Failed to fetch")) {
+        setError(
+          "Błąd połączenia z serwerem. Sprawdź internet i zmienne NEXT_PUBLIC_SUPABASE_* w .env.local."
+        );
+      } else {
+        setError("Wystąpił błąd. Spróbuj ponownie za chwilę.");
       }
     } finally {
       setLoading(false);

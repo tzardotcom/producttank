@@ -83,7 +83,7 @@ export default async function HomePage() {
               Zarządzaj eventami w jednym miejscu
             </h1>
             <p className="text-lg text-muted-foreground mb-10 max-w-2xl mx-auto sm:text-xl">
-              Zapisy, uczestnicy, check-in i feedback – bez rozproszenia na dziesiątki narzędzi.
+              Formularze zapisów, lista gości i feedback w jednym miejscu – bez rozproszenia na dziesiątki narzędzi.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/register">
@@ -177,7 +177,7 @@ export default async function HomePage() {
               Zacznij zarządzać eventami już dziś
             </h2>
             <p className="text-muted-foreground mb-6">
-              Załóż konto w minutę. Plan Free: 2 eventy miesięcznie, do 50 uczestników.
+              Proste formularze zapisów i uporządkowany panel jak w najlepszych narzędziach product-led. Załóż konto w minutę – Plan Free: 2 eventy miesięcznie, do 50 uczestników.
             </p>
             <Link href="/register">
               <Button size="lg">Zarejestruj się za darmo</Button>

@@ -51,12 +51,16 @@ export default async function RegistrationsPage({
 
   return (
     <div className="max-w-4xl">
-      <p className="mb-4">
-        <Link href="/dashboard" className="text-sm text-muted-foreground hover:underline">
-          ← Eventy
+      <nav className="mb-4 flex items-center gap-1.5 text-sm text-muted-foreground">
+        <Link href="/dashboard" className="hover:text-foreground transition-colors">
+          Home
         </Link>
-      </p>
-      <h1 className="text-2xl font-bold mb-2">{event.title}</h1>
+        <span aria-hidden>/</span>
+        <span className="truncate text-foreground font-medium">{event.title}</span>
+        <span aria-hidden>/</span>
+        <span className="text-muted-foreground">Zapisani</span>
+      </nav>
+      <h1 className="text-2xl font-bold tracking-tight text-foreground mb-2">{event.title}</h1>
       <p className="text-muted-foreground mb-6">
         {new Date(event.starts_at).toLocaleString("pl-PL", { dateStyle: "long", timeStyle: "short" })}
       </p>
