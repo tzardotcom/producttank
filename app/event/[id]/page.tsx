@@ -17,16 +17,19 @@ export default async function EventPage({ params }: { params: Promise<{ id: stri
   if (error || !event) notFound();
 
   return (
-    <div className="min-h-screen flex flex-col">
-      <header className="border-b">
+    <div className="min-h-screen flex flex-col bg-background">
+      <header className="sticky top-0 z-10 border-b border-border/80 bg-background/95 backdrop-blur">
         <div className="container mx-auto px-4 py-4">
-          <a href="/" className="text-sm text-muted-foreground hover:underline">
+          <a
+            href="/"
+            className="text-sm text-muted-foreground hover:text-foreground transition-colors duration-normal"
+          >
             ← Strona główna
           </a>
         </div>
       </header>
       <main className="flex-1 container mx-auto px-4 py-10 max-w-xl">
-        <h1 className="text-2xl font-bold mb-2">{event.title}</h1>
+        <h1 className="text-3xl font-bold tracking-tight text-foreground mb-2">{event.title}</h1>
         <p className="text-muted-foreground mb-8">
           {new Date(event.starts_at).toLocaleString("pl-PL", {
             dateStyle: "long",

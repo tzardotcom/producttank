@@ -6,10 +6,22 @@ export const dynamic = "force-dynamic";
 
 const CRON_SECRET = process.env.CRON_SECRET;
 const APP_URL = process.env.NEXT_PUBLIC_APP_URL ?? "http://localhost:3000";
+const isProduction =
+  process.env.VERCEL === "1" || process.env.NODE_ENV === "production";
 
 export async function GET(request: Request) {
   const authHeader = request.headers.get("authorization");
-  if (CRON_SECRET && authHeader !== `Bearer ${CRON_SECRET}`) {
+  const validAuth = CRON_SECRET && authHeader === `Bearer ${CRON_SECRET}`;
+  if (isProduction && !CRON_SECRET) {
+    return NextResponse.json(
+      { error: "CRON_SECRET is required in production" },
+      { status: 500 }
+    );
+  }
+  if (isProduction && !validAuth) {
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  }
+  if (CRON_SECRET && !validAuth) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 

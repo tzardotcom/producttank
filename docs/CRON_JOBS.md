@@ -14,7 +14,7 @@ CRON_SECRET=dowolny-tajny-ciag
 
 Wywołania muszą przekazać nagłówek: `Authorization: Bearer <CRON_SECRET>`.
 
-Jeśli `CRON_SECRET` nie jest ustawione, endpointy przyjmują wywołania bez autoryzacji (tylko do testów lokalnych).
+W **produkcji** (Vercel / `NODE_ENV=production`) `CRON_SECRET` jest **wymagane** – brak ustawienia zwraca 500, brak poprawnego nagłówka 401. Lokalnie bez `CRON_SECRET` endpointy przyjmują wywołania bez autoryzacji (do testów).
 
 ## Endpointy
 

@@ -2,36 +2,48 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Design system inspired by PhantomBuster: electric blue, indigo, clean SaaS */
 @layer base {
   :root {
+    /* Light: crisp white + electric blue primary */
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-    --destructive: 0 84.2% 60.2%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-    --radius: 0.5rem;
+    --foreground: 222 47% 11%;
+    --primary: 221 83% 53%;
+    --primary-foreground: 0 0% 100%;
+    --primary-hover: 221 83% 45%;
+    --secondary: 224 76% 48%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 214 32% 97%;
+    --muted-foreground: 215 16% 47%;
+    --accent: 214 32% 94%;
+    --accent-foreground: 222 47% 11%;
+    --destructive: 0 84% 60%;
+    --border: 214 32% 90%;
+    --input: 214 32% 90%;
+    --ring: 221 83% 53%;
+    --radius: 0.625rem;
+    /* Animation */
+    --duration-fast: 150ms;
+    --duration-normal: 250ms;
+    --duration-slow: 350ms;
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
+    --background: 222 47% 8%;
     --foreground: 210 40% 98%;
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-    --accent: 217.2 32.6% 17.5%;
+    --primary: 221 83% 58%;
+    --primary-foreground: 0 0% 100%;
+    --primary-hover: 221 83% 65%;
+    --secondary: 224 76% 55%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 217 33% 17%;
+    --muted-foreground: 215 20% 65%;
+    --accent: 217 33% 22%;
     --accent-foreground: 210 40% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
+    --destructive: 0 63% 31%;
+    --border: 217 33% 22%;
+    --input: 217 33% 22%;
+    --ring: 221 83% 58%;
   }
 }
 
@@ -41,5 +53,40 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+/* PhantomBuster-style transitions */
+@layer utilities {
+  .transition-smooth {
+    transition-property: color, background-color, border-color, box-shadow, transform;
+    transition-duration: var(--duration-normal);
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .animate-in-fade {
+    animation: fade-in var(--duration-normal) ease-out forwards;
+  }
+  .animate-in-slide-up {
+    animation: slide-up var(--duration-slow) cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
